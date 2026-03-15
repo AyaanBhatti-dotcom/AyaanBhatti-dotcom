@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Primary Meta Tags -->
+  <title>Ayaan Bhatti | Cybersecurity Portfolio</title>
+  <meta name="title"       content="Ayaan Bhatti | Cybersecurity Portfolio">
+  <meta name="description" content="Cybersecurity student at St. John's University. CTF competitor, red teamer, NECCDC competitor. Explore my projects including Pwnagotchi, honeypot research, and Club Connect.">
+  <meta name="author"      content="Ayaan Bhatti">
+  <meta name="keywords"    content="cybersecurity, CTF, NECCDC, red team, blue team, St. John's University, portfolio, Kali Linux, penetration testing">
+  <meta name="robots"      content="index, follow">
+  <meta name="theme-color" content="#000000">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://ayaanbhatti-dotcom.github.io/">
+
+  <!-- Open Graph / Social -->
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="https://ayaanbhatti-dotcom.github.io/">
+  <meta property="og:title"       content="Ayaan Bhatti | Cybersecurity Portfolio">
+  <meta property="og:description" content="Cybersecurity student, CTF competitor, and red teamer at St. John's University.">
+  <meta property="og:image"       content="https://ayaanbhatti-dotcom.github.io/og-image.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="Ayaan Bhatti | Cybersecurity Portfolio">
+  <meta name="twitter:description" content="Cybersecurity student, CTF competitor, and red teamer.">
+
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Ayaan Bhatti",
+    "url": "https://ayaanbhatti-dotcom.github.io",
+    "email": "a.bhatti3005@gmail.com",
+    "telephone": "929-234-9944",
+    "sameAs": [
+      "https://github.com/AyaanBhatti-dotcom",
+      "https://www.linkedin.com/in/ayaan-bhatti-0970a7346/"
+    ],
+    "jobTitle": "Cybersecurity Student",
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "St. John's University"
+    },
+    "knowsAbout": [
+      "Cybersecurity",
+      "Penetration Testing",
+      "CTF Competitions",
+      "Red Team Operations",
+      "Network Security"
+    ]
+  }
+  </script>
+
+  <!-- Fonts — preconnect before stylesheet request -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&family=VT323&family=Press+Start+2P&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- Critical CSS inline — prevents flash of unstyled content -->
+  <style>
+    body { background: #020804; color: #57FF6E; font-family: 'JetBrains Mono', 'Courier New', monospace; margin: 0; }
+    .crt-overlay { display: none; } /* revealed after load via JS */
+  </style>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/design-system.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/effects.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <!-- Favicon: inline SVG terminal icon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⌨</text></svg>">
+</head>
+<body>
+  <!-- CRT overlay (appended via JS) -->
+  <div class="crt-overlay" aria-hidden="true"></div>
+
+  <!-- ╔══════════════════════════════════════════════════════════╗ -->
+  <!-- ║                     SITE HEADER                         ║ -->
+  <!-- ╚══════════════════════════════════════════════════════════╝ -->
+  <header class="site-header" role="banner">
+    <div class="container">
+      <!-- Single CSS-bordered panel — no ASCII box chars that misalign -->
+      <div class="nfo-header nfo-panel" aria-label="Site header">
+
+        <!-- ASCII logo — no leading newline inside <pre> -->
+        <pre class="nfo-header__logo glitch" aria-label="Ayaan Bhatti logo">╔═╗ ╦ ╦ ╔═╗ ╔═╗ ╔╗╔  ╔╗  ╦ ╦ ╔═╗ ╔╦╗ ╔╦╗ ╦
+╠═╣ ╚╦╝ ╠═╣ ╠═╣ ║║║  ╠╩╗ ╠═╣ ╠═╣  ║   ║  ║
+╩ ╩  ╩  ╩ ╩ ╩ ╩ ╝╚╝  ╚═╝ ╩ ╩ ╩ ╩  ╩   ╩  ╩</pre>
+
+        <!-- CSS divider between logo and metadata -->
+        <div class="nfo-header__divider" aria-hidden="true"></div>
+
+        <!-- Release metadata — no manual ║ padding -->
+        <div class="nfo-header__meta" aria-label="Portfolio metadata">
+          <span class="nfo-header__meta-line">
+            <span class="text-cyan">RELEASE..: </span>
+            <span class="text-white">CYBERSEC PORTFOLIO v1.0</span>
+          </span>
+          <span class="nfo-header__meta-line">
+            <span class="text-cyan">SUPPLIER.: </span>
+            <span class="text-white">AYAAN BHATTI [ST. JOHNS UNIVERSITY]</span>
+          </span>
+          <span class="nfo-header__meta-line">
+            <span class="text-cyan">DATE.....: </span>
+            <span id="header-date" class="text-white">MMDDYYYY</span>
+          </span>
+          <span class="nfo-header__meta-line">
+            <span class="text-cyan">TYPE.....: </span>
+            <span class="text-white">PORTFOLIO / CYBERSECURITY / CTF</span>
+          </span>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- ─── NAVIGATION ─────────────────────────────────────────────── -->
+  <nav class="site-nav" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <div class="site-nav__inner">
+        <!-- Terminal prompt prefix -->
+        <span class="site-nav__prompt glitch" aria-hidden="true">root@ayaan:~#</span>
+
+        <!-- Status indicator -->
+        <span class="site-nav__status" aria-label="System status: online">
+          <span class="status-dot" aria-hidden="true"></span>
+          <span class="text-dim text-sm">ONLINE</span>
+        </span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ─── FULLSCREEN VERTICAL MENU OVERLAY ─────────────────────── -->
+  <!-- Port of MenuVertical React/motion component — vanilla CSS transitions -->
+  <div id="menu-overlay"
+       class="menu-overlay"
+       role="dialog"
+       aria-modal="true"
+       aria-label="Full navigation menu"
+       aria-hidden="true">
+
+    <!-- Close / ESC button -->
+    <button class="menu-overlay__close" aria-label="Close navigation menu">
+      <span aria-hidden="true">[ ESC ]</span>
+    </button>
+
+    <!-- Vertical nav items — Rajdhani font, large, animated -->
+    <nav class="menu-vertical" aria-label="Site navigation">
+
+      <a href="#hero"       class="menu-vertical__item" data-menu-link>
+        <span class="menu-vertical__arrow" aria-hidden="true">→</span>
+        <span class="menu-vertical__label">./home</span>
+      </a>
+      <a href="#about"      class="menu-vertical__item" data-menu-link>
+        <span class="menu-vertical__arrow" aria-hidden="true">→</span>
+        <span class="menu-vertical__label">./about</span>
+      </a>
+      <a href="#experience" class="menu-vertical__item" data-menu-link>
+        <span class="menu-vertical__arrow" aria-hidden="true">→</span>
+        <span class="menu-vertical__label">./experience</span>
+      </a>
+      <a href="#projects"   class="menu-vertical__item" data-menu-link>
+        <span class="menu-vertical__arrow" aria-hidden="true">→</span>
+        <span class="menu-vertical__label">./projects</span>
+      </a>
+      <a href="#skills"     class="menu-vertical__item" data-menu-link>
+        <span class="menu-vertical__arrow" aria-hidden="true">→</span>
+        <span class="menu-vertical__label">./skills</span>
+      </a>
+      <a href="#contact"    class="menu-vertical__item" data-menu-link>
+        <span class="menu-vertical__arrow" aria-hidden="true">→</span>
+        <span class="menu-vertical__label">./contact</span>
+      </a>
+
+    </nav>
+
+    <!-- Terminal flavour text -->
+    <p class="menu-overlay__hint" aria-hidden="true">
+      root@ayaan:~# nav --fullscreen
+    </p>
+
+  </div>
+
+  <!-- ─── HERO / NFO RELEASE INFO ───────────────────────────────── -->
+  <section id="hero" class="section hero-section" aria-label="Introduction">
+    <div class="container">
+
+      <!-- Unified NFO panel — single border, CSS dividers, no pre/border mismatch -->
+      <div class="nfo-release nfo-panel" role="article" aria-label="Portfolio release file">
+
+        <!-- Banner strip -->
+        <div class="nfo-release__banner" aria-hidden="true">
+          <span class="text-dim">░▒▓</span>
+          <span class="text-white"> AYAAN.BHATTI-PORTFOLIO.2026.NFO </span>
+          <span class="text-dim">▓▒░</span>
+        </div>
+
+        <!-- About block -->
+        <div class="nfo-release__section">
+          <p class="nfo-release__label text-cyan" data-special-text>[ ABOUT THIS RELEASE ]</p>
+          <p class="nfo-release__text">
+            Cybersecurity student, red teamer, and CTF competitor based in NYC.<br>
+            Currently attending St. John's University (B.S. Cybersecurity, 2028).<br>
+            GPA: <span class="text-yellow">3.86</span>
+            &nbsp;<span class="text-dim">|</span>&nbsp;
+            Team: <span class="text-cyan">Cyberstorm</span>
+            &nbsp;<span class="text-dim">|</span>&nbsp;
+            Handle: <span class="text-white">AyaanBhatti-dotcom</span>
+          </p>
+        </div>
+
+        <!-- CSS divider — always full-width, no char alignment issues -->
+        <div class="nfo-release__rule" aria-hidden="true"></div>
+
+        <!-- Distribution sites -->
+        <div class="nfo-release__section">
+          <p class="nfo-release__label text-cyan" data-special-text>[ DISTRIBUTION SITES ]</p>
+          <ul class="nfo-release__distro" role="list">
+            <li>
+              <span class="nfo-release__distro-num text-dim"># 01</span>
+              <span class="nfo-release__distro-label text-cyan">GITHUB</span>
+              <a href="https://github.com/AyaanBhatti-dotcom"
+                 class="nfo-link"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 aria-label="GitHub profile">
+                github.com/AyaanBhatti-dotcom
+              </a>
+            </li>
+            <li>
+              <span class="nfo-release__distro-num text-dim"># 02</span>
+              <span class="nfo-release__distro-label text-cyan">LINKEDIN</span>
+              <a href="https://www.linkedin.com/in/ayaan-bhatti-0970a7346/"
+                 class="nfo-link"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 aria-label="LinkedIn profile">
+                linkedin.com/in/ayaan-bhatti
+              </a>
+            </li>
+            <li>
+              <span class="nfo-release__distro-num text-dim"># 03</span>
+              <span class="nfo-release__distro-label text-cyan">EMAIL</span>
+              <a href="mailto:a.bhatti3005@gmail.com"
+                 class="nfo-link"
+                 aria-label="Email Ayaan">
+                a.bhatti3005@gmail.com
+              </a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Typing tagline sits cleanly below the panel -->
+      <p class="hero-tagline" aria-live="polite">
+        <span class="text-dim">root@ayaan:~# </span>
+        <span id="typed-tagline" class="text-white"></span>
+        <span class="typed-cursor text-cyan" aria-hidden="true">█</span>
+      </p>
+
+    </div>
+  </section>
+
+  <!-- ─── ABOUT / EDUCATION ─────────────────────────────────────── -->
+  <section id="about" class="section" aria-labelledby="about-heading">
+    <div class="container">
+
+      <!-- Section title -->
+      <div class="section-title" aria-hidden="true">
+        <span class="text-cyan">╔══[ </span>
+        <h2 id="about-heading" class="section-title__text">ABOUT.TXT</h2>
+        <span class="text-cyan"> ]</span>
+        <span class="section-title__rule text-dim"> ═══════════════════════════════════</span>
+      </div>
+
+      <!-- WHOIS record block -->
+      <div class="record-panel nfo-panel" role="region" aria-label="Personal information record">
+        <p class="record-panel__command text-dim" aria-label="Command prompt">
+          <span class="text-green">root@ayaan:~# </span>whois ayaan.bhatti
+        </p>
+
+        <dl class="record-list">
+          <div class="record-row">
+            <dt class="record-key text-cyan">HANDLE</dt>
+            <dd class="record-value text-white">AyaanBhatti-dotcom</dd>
+          </div>
+          <div class="record-row">
+            <dt class="record-key text-cyan">ROLE</dt>
+            <dd class="record-value text-white">Cybersecurity Student / Red Teamer / CTF Competitor</dd>
+          </div>
+          <div class="record-row">
+            <dt class="record-key text-cyan">LOCATION</dt>
+            <dd class="record-value text-white">New York City, USA</dd>
+          </div>
+          <div class="record-row">
+            <dt class="record-key text-cyan">STATUS</dt>
+            <dd class="record-value">
+              <span class="status-badge status-badge--active">ACTIVE</span>
+              <span class="text-dim"> &nbsp;[NECCDC COMPETITOR]</span>
+            </dd>
+          </div>
+        </dl>
+
+        <div class="record-divider text-dim" aria-hidden="true">
+          ├──────────────────────────────────────────────────────────────────┤
+        </div>
+
+        <!-- Education sub-block -->
+        <p class="record-panel__command text-dim" aria-label="Education query">
+          <span class="text-green">root@ayaan:~# </span>cat education.log
+        </p>
+
+        <dl class="record-list">
+          <div class="record-row">
+            <dt class="record-key text-cyan">INSTITUTION</dt>
+            <dd class="record-value text-white">St. John's University</dd>
+          </div>
+          <div class="record-row">
+            <dt class="record-key text-cyan">DEGREE</dt>
+            <dd class="record-value text-white">Bachelor of Science — Cybersecurity</dd>
+          </div>
+          <div class="record-row">
+            <dt class="record-key text-cyan">EXPECTED</dt>
+            <dd class="record-value text-white">2028</dd>
+          </div>
+          <div class="record-row">
+            <dt class="record-key text-cyan">GPA</dt>
+            <dd class="record-value">
+              <span class="text-yellow">3.86</span>
+              <span class="text-dim"> / 4.0</span>
+            </dd>
+          </div>
+          <div class="record-row">
+            <dt class="record-key text-cyan">TEAM</dt>
+            <dd class="record-value">
+              <a href="#experience" class="nfo-link">Cyberstorm</a>
+              <span class="text-dim"> — Competitive Security Team</span>
+            </dd>
+          </div>
+        </dl>
+
+        <!-- Closing prompt -->
+        <p class="record-panel__command text-dim" aria-hidden="true">
+          <span class="text-green">root@ayaan:~# </span>
+          <span class="typed-cursor text-cyan">█</span>
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── EXPERIENCE ────────────────────────────────────────────── -->
+  <section id="experience" class="section" aria-labelledby="exp-heading">
+    <div class="container">
+
+      <div class="section-title" aria-hidden="true">
+        <span class="text-cyan">╔══[ </span>
+        <h2 id="exp-heading" class="section-title__text">EXPERIENCE.LOG</h2>
+        <span class="text-cyan"> ]</span>
+        <span class="section-title__rule text-dim"> ═════════════════════════════</span>
+      </div>
+
+      <!-- Terminal window chrome -->
+      <div class="terminal-window" role="region" aria-label="Experience terminal window">
+
+        <!-- Title bar -->
+        <div class="terminal-window__titlebar" aria-hidden="true">
+          <span class="terminal-window__dots">
+            <span class="dot dot--red"   title="Close"></span>
+            <span class="dot dot--yellow" title="Minimize"></span>
+            <span class="dot dot--green"  title="Maximize"></span>
+          </span>
+          <span class="terminal-window__title">bash — experience.sh — 80×24</span>
+          <span class="terminal-window__tabs">
+            <span class="terminal-window__tab terminal-window__tab--active">experience.sh</span>
+          </span>
+        </div>
+
+        <!-- Terminal body -->
+        <div class="terminal-window__body">
+          <!-- Corner accents -->
+          <span class="terminal-corner terminal-corner--tl" aria-hidden="true">┌</span>
+          <span class="terminal-corner terminal-corner--tr" aria-hidden="true">┐</span>
+          <span class="terminal-corner terminal-corner--bl" aria-hidden="true">└</span>
+          <span class="terminal-corner terminal-corner--br" aria-hidden="true">┘</span>
+
+          <!-- Command -->
+          <p class="term-line">
+            <span class="term-prompt">cyberstorm@sjunix:~$</span>
+            <span class="term-cmd text-white"> cat experience.txt</span>
+          </p>
+
+          <!-- Output -->
+          <div class="term-output">
+            <p class="term-line">
+              <span class="text-yellow">╔══ CYBERSTORM TEAM MEMBER ══════════════════════════════════╗</span>
+            </p>
+            <p class="term-line">
+              <span class="text-dim">║ </span>
+              <span class="text-cyan">ORG.....: </span>
+              <span class="text-white">St. John's University</span>
+            </p>
+            <p class="term-line">
+              <span class="text-dim">║ </span>
+              <span class="text-cyan">PERIOD..: </span>
+              <span class="text-white">2024 — Current</span>
+            </p>
+            <p class="term-line">
+              <span class="text-dim">║ </span>
+              <span class="text-cyan">ROLE....: </span>
+              <span class="text-white">Competitive Cybersecurity Team Member</span>
+            </p>
+            <p class="term-line">
+              <span class="text-yellow">╠════════════════════════════════════════════════════════════╣</span>
+            </p>
+            <p class="term-line">
+              <span class="text-dim">║ </span>
+              <span class="text-cyan">DUTIES..: </span>
+            </p>
+
+            <ul class="term-list" role="list" aria-label="Responsibilities">
+              <li class="term-list-item">
+                <span class="text-text">► </span>
+                <span>Competing at NECCDC regionals as part of the Cyberstorm blue team</span>
+              </li>
+              <li class="term-list-item">
+                <span class="text-text">► </span>
+                <span>Train weekly on offensive security via TryHackMe rooms and penetration testing exercises</span>
+              </li>
+              <li class="term-list-item">
+                <span class="text-text">► </span>
+                <span>Practice web exploitation, privilege escalation, and Linux-based attack methodologies</span>
+              </li>
+              <li class="term-list-item">
+                <span class="text-text">► </span>
+                <span>Participate in CTF competitions including BSides and PatriotCTF</span>
+              </li>
+            </ul>
+
+            <p class="term-line">
+              <span class="text-yellow">╚════════════════════════════════════════════════════════════╝</span>
+            </p>
+          </div>
+
+          <!-- Return prompt -->
+          <p class="term-line term-line--prompt">
+            <span class="term-prompt">cyberstorm@sjunix:~$</span>
+            <span class="typed-cursor text-cyan" aria-hidden="true"> █</span>
+          </p>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── PROJECTS ──────────────────────────────────────────────── -->
+  <section id="projects" class="section" aria-labelledby="projects-heading">
+    <div class="container">
+
+      <div class="section-title" aria-hidden="true">
+        <span class="text-cyan">╔══[ </span>
+        <h2 id="projects-heading" class="section-title__text">PROJECTS.DIR</h2>
+        <span class="text-cyan"> ]</span>
+        <span class="section-title__rule text-dim"> ══════════════════════════════</span>
+      </div>
+
+      <div class="projects-grid">
+
+        <!-- ── PROJECT 1: Club Connect ── -->
+        <article class="project-card" aria-label="Project: Club Connect Mobile App">
+          <pre class="project-card__header text-cyan" aria-hidden="true">
+╔══════════════════════════════════════════════╗
+║  ░▒▓ CLUB.CONNECT.2024.NFO ▓▒░              ║
+╚══════════════════════════════════════════════╝</pre>
+
+          <div class="project-card__body">
+            <dl class="record-list">
+              <div class="record-row">
+                <dt class="record-key text-cyan">NAME</dt>
+                <dd class="record-value text-white">Club Connect Mobile App</dd>
+              </div>
+              <div class="record-row">
+                <dt class="record-key text-cyan">TYPE</dt>
+                <dd class="record-value text-white">Cross-Platform Mobile App</dd>
+              </div>
+              <div class="record-row">
+                <dt class="record-key text-cyan">STACK</dt>
+                <dd class="record-value text-white">React Native, Expo, Cursor AI</dd>
+              </div>
+              <div class="record-row">
+                <dt class="record-key text-cyan">AWARD</dt>
+                <dd class="record-value text-yellow">🏆 Best Track + Fan Favorite</dd>
+              </div>
+            </dl>
+
+            <div class="project-card__notes">
+              <p class="text-dim">[ NOTES ]</p>
+              <p>Cross-platform university club discovery and registration app. Won two hackathon awards against many competing teams. Leveraged AI-assisted development with Cursor to accelerate prototyping.</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- ── PROJECT 2: Pwnagotchi ── -->
+        <article class="project-card" aria-label="Project: Pwnagotchi WiFi Security Tool">
+          <pre class="project-card__header text-cyan" aria-hidden="true">
+╔══════════════════════════════════════════════╗
+║  ░▒▓ PWNAGOTCHI.RPI.2024.NFO ▓▒░           ║
+╚══════════════════════════════════════════════╝</pre>
+
+          <div class="project-card__body">
+            <dl class="record-list">
+              <div class="record-row">
+                <dt class="record-key text-cyan">NAME</dt>
+                <dd class="record-value text-white">Pwnagotchi</dd>
+              </div>
+              <div class="record-row">
+                <dt class="record-key text-cyan">TYPE</dt>
+                <dd class="record-value text-white">WiFi Security Research Tool</dd>
+              </div>
+              <div class="record-row">
+                <dt class="record-key text-cyan">HARDWARE</dt>
+                <dd class="record-value text-white">Raspberry Pi</dd>
+              </div>
+              <div class="record-row">
+                <dt class="record-key text-cyan">TARGET</dt>
+                <dd class="record-value text-white">WPA Handshake Capture</dd>
+              </div>
+            </dl>
+
+            <div class="project-card__notes">
+              <p class="text-dim">[ NOTES ]</p>
+              <p>Configured autonomous WiFi handshake capture device on Raspberry Pi. Captured and analyzed WPA handshakes to demonstrate network vulnerabilities. Hands-on with passive monitoring and wireless protocol exploitation.</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- ── PROJECT 3: Honeypot Research ── -->
+        <article class="project-card" aria-label="Project: Honeypot Research">
+          <pre class="project-card__header text-cyan" aria-hidden="true">
+╔══════════════════════════════════════════════╗
+║  ░▒▓ HONEYPOT.RESEARCH.2024.NFO ▓▒░        ║
+╚══════════════════════════════════════════════╝</pre>
+
+          <div class="project-card__body">
+            <dl class="record-list">
+              <div class="record-row">
+                <dt class="record-key text-cyan">NAME</dt>
+                <dd class="record-value text-white">Honeypot Research Project</dd>
+              </div>
+              <div class="record-row">
+                <dt class="record-key text-cyan">TYPE</dt>
+                <dd class="record-value text-white">Threat Intelligence / Research</dd>
+              </div>
+              <div class="record-row">
+                <dt class="record-key text-cyan">PLATFORM</dt>
+                <dd class="record-value text-white">Virtual Machines (Cyberstorm)</dd>
+              </div>
+              <div class="record-row">
+                <dt class="record-key text-cyan">OUTPUT</dt>
+                <dd class="record-value text-white">Technical Report + Defensive Recs</dd>
+              </div>
+            </dl>
+
+            <div class="project-card__notes">
+              <p class="text-dim">[ NOTES ]</p>
+              <p>Deployed honeypots on VMs to capture live malicious activity. Analyzed attack logs for intrusion patterns and attacker behavior. Contributed to a team technical report with defensive recommendations.</p>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SKILLS ────────────────────────────────────────────────── -->
+  <section id="skills" class="section" aria-labelledby="skills-heading">
+    <div class="container">
+
+      <div class="section-title" aria-hidden="true">
+        <span class="text-cyan">╔══[ </span>
+        <h2 id="skills-heading" class="section-title__text">SKILLS.SH</h2>
+        <span class="text-cyan"> ]</span>
+        <span class="section-title__rule text-dim"> ══════════════════════════════════</span>
+      </div>
+
+      <div class="terminal-window" role="region" aria-label="Skills terminal output">
+
+        <div class="terminal-window__titlebar" aria-hidden="true">
+          <span class="terminal-window__dots">
+            <span class="dot dot--red"    title="Close"></span>
+            <span class="dot dot--yellow" title="Minimize"></span>
+            <span class="dot dot--green"  title="Maximize"></span>
+          </span>
+          <span class="terminal-window__title">bash — skills.sh — 80×24</span>
+          <span class="terminal-window__tabs">
+            <span class="terminal-window__tab terminal-window__tab--active">skills.sh</span>
+          </span>
+        </div>
+
+        <div class="terminal-window__body">
+          <!-- Corner accents -->
+          <span class="terminal-corner terminal-corner--tl" aria-hidden="true">┌</span>
+          <span class="terminal-corner terminal-corner--tr" aria-hidden="true">┐</span>
+          <span class="terminal-corner terminal-corner--bl" aria-hidden="true">└</span>
+          <span class="terminal-corner terminal-corner--br" aria-hidden="true">┘</span>
+
+          <p class="term-line">
+            <span class="term-prompt">root@ayaan:~$</span>
+            <span class="term-cmd text-white"> ./skills.sh --list-all</span>
+          </p>
+          <p class="term-line text-dim">Loading skill modules... <span class="text-green">OK</span></p>
+          <br>
+
+          <!-- Category: Operating Systems -->
+          <p class="skills-category text-yellow">[ OPERATING SYSTEMS ]</p>
+          <div class="skills-grid" role="list" aria-label="Operating systems skills">
+            <div class="skill-item" role="listitem">
+              <span class="skill-status text-green">ii</span>
+              <span class="skill-name text-white">kali-linux</span>
+              <span class="skill-ver text-dim">2024.x</span>
+              <span class="skill-desc text-dim">Penetration Testing OS</span>
+            </div>
+            <div class="skill-item" role="listitem">
+              <span class="skill-status text-green">ii</span>
+              <span class="skill-name text-white">linux-fundamentals</span>
+              <span class="skill-ver text-dim">5.x</span>
+              <span class="skill-desc text-dim">Bash, CLI, System Admin</span>
+            </div>
+            <div class="skill-item" role="listitem">
+              <span class="skill-status text-green">ii</span>
+              <span class="skill-name text-white">virtual-machines</span>
+              <span class="skill-ver text-dim">vmware/vbox</span>
+              <span class="skill-desc text-dim">Lab Environment Setup</span>
+            </div>
+          </div>
+
+          <!-- Category: Programming -->
+          <p class="skills-category text-yellow">[ PROGRAMMING LANGUAGES ]</p>
+          <div class="skills-grid" role="list" aria-label="Programming language skills">
+            <div class="skill-item" role="listitem">
+              <span class="skill-status text-green">ii</span>
+              <span class="skill-name text-white">python3</span>
+              <span class="skill-ver text-dim">3.x</span>
+              <span class="skill-desc text-dim">Scripting, Automation, Exploit Dev</span>
+            </div>
+            <div class="skill-item" role="listitem">
+              <span class="skill-status text-green">ii</span>
+              <span class="skill-name text-white">java</span>
+              <span class="skill-ver text-dim">JDK 17</span>
+              <span class="skill-desc text-dim">OOP, Academic Coursework</span>
+            </div>
+            <div class="skill-item" role="listitem">
+              <span class="skill-status text-green">ii</span>
+              <span class="skill-name text-white">html-css</span>
+              <span class="skill-ver text-dim">HTML5/CSS3</span>
+              <span class="skill-desc text-dim">Frontend Web Development</span>
+            </div>
+          </div>
+
+          <!-- Category: Security & Operations -->
+          <p class="skills-category text-yellow">[ SECURITY &amp; OPERATIONS ]</p>
+          <div class="skills-grid" role="list" aria-label="Security skills">
+            <div class="skill-item" role="listitem">
+              <span class="skill-status text-green">ii</span>
+              <span class="skill-name text-white">active-directory</span>
+              <span class="skill-ver text-dim">Win AD</span>
+              <span class="skill-desc text-dim">AD Enumeration &amp; Attacks</span>
+            </div>
+            <div class="skill-item" role="listitem">
+              <span class="skill-status text-green">ii</span>
+              <span class="skill-name text-white">red-team</span>
+              <span class="skill-ver text-dim">NECCDC</span>
+              <span class="skill-desc text-dim">Offensive Security, CTF</span>
+            </div>
+            <div class="skill-item" role="listitem">
+              <span class="skill-status text-green">ii</span>
+              <span class="skill-name text-white">blue-team</span>
+              <span class="skill-ver text-dim">NECCDC</span>
+              <span class="skill-desc text-dim">Defense, Log Analysis, Hardening</span>
+            </div>
+            <div class="skill-item" role="listitem">
+              <span class="skill-status text-green">ii</span>
+              <span class="skill-name text-white">malware-analysis</span>
+              <span class="skill-ver text-dim">static/dyn</span>
+              <span class="skill-desc text-dim">Reverse Engineering Fundamentals</span>
+            </div>
+            <div class="skill-item" role="listitem">
+              <span class="skill-status text-green">ii</span>
+              <span class="skill-name text-white">networking</span>
+              <span class="skill-ver text-dim">TCP/IP</span>
+              <span class="skill-desc text-dim">Protocols, Packet Analysis</span>
+            </div>
+          </div>
+
+          <!-- Category: Tools -->
+          <p class="skills-category text-yellow">[ TOOLS &amp; PLATFORMS ]</p>
+          <div class="skills-grid" role="list" aria-label="Tools and platforms">
+            <div class="skill-item" role="listitem">
+              <span class="skill-status text-green">ii</span>
+              <span class="skill-name text-white">nmap</span>
+              <span class="skill-ver text-dim">7.x</span>
+              <span class="skill-desc text-dim">Network Scanning &amp; Recon</span>
+            </div>
+            <div class="skill-item" role="listitem">
+              <span class="skill-status text-green">ii</span>
+              <span class="skill-name text-white">metasploit</span>
+              <span class="skill-ver text-dim">6.x</span>
+              <span class="skill-desc text-dim">Exploitation Framework</span>
+            </div>
+            <div class="skill-item" role="listitem">
+              <span class="skill-status text-green">ii</span>
+              <span class="skill-name text-white">wireshark</span>
+              <span class="skill-ver text-dim">4.x</span>
+              <span class="skill-desc text-dim">Packet Capture &amp; Analysis</span>
+            </div>
+            <div class="skill-item" role="listitem">
+              <span class="skill-status text-green">ii</span>
+              <span class="skill-name text-white">burpsuite</span>
+              <span class="skill-ver text-dim">community</span>
+              <span class="skill-desc text-dim">Web App Proxy &amp; Fuzzing</span>
+            </div>
+            <div class="skill-item" role="listitem">
+              <span class="skill-status text-green">ii</span>
+              <span class="skill-name text-white">tryhackme</span>
+              <span class="skill-ver text-dim">active</span>
+              <span class="skill-desc text-dim">CTF Training Platform</span>
+            </div>
+          </div>
+
+          <p class="term-line text-dim" style="margin-top: var(--space-sm)">
+            16 packages loaded. 0 errors. 0 warnings.
+          </p>
+          <p class="term-line">
+            <span class="term-prompt">root@ayaan:~$</span>
+            <span class="typed-cursor text-cyan" aria-hidden="true"> █</span>
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── CONTACT ───────────────────────────────────────────────── -->
+  <section id="contact" class="section" aria-labelledby="contact-heading">
+    <div class="container">
+
+      <div class="section-title" aria-hidden="true">
+        <span class="text-cyan">╔══[ </span>
+        <h2 id="contact-heading" class="section-title__text">CONTACT.NFO</h2>
+        <span class="text-cyan"> ]</span>
+        <span class="section-title__rule text-dim"> ═════════════════════════════</span>
+      </div>
+
+      <div class="nfo-panel">
+        <pre class="text-cyan text-sm" aria-hidden="true">╔══════════════════════════════════════════════════════════════════════╗
+║                        [ GREETS &amp; CONTACT ]                        ║
+╚══════════════════════════════════════════════════════════════════════╝</pre>
+
+        <div class="contact-grid">
+          <!-- Win98-style dialog — contact CTA -->
+          <div class="win98-dialog" role="complementary" aria-label="Contact shortcuts">
+
+            <!-- Titlebar: classic navy-to-blue gradient -->
+            <div class="win98-dialog__titlebar" aria-hidden="true">
+              <span class="win98-dialog__icon">▓</span>
+              <span class="win98-dialog__title">CONNECT.EXE</span>
+              <div class="win98-dialog__controls">
+                <span class="win98-dialog__ctrl">_</span>
+                <span class="win98-dialog__ctrl">□</span>
+                <span class="win98-dialog__ctrl">×</span>
+              </div>
+            </div>
+
+            <!-- Body -->
+            <div class="win98-dialog__body">
+              <p class="win98-dialog__message">
+                Select a contact channel to<br>
+                initiate connection with Ayaan:
+              </p>
+              <div class="win98-dialog__separator" aria-hidden="true"></div>
+              <div class="win98-dialog__buttons">
+                <a href="mailto:a.bhatti3005@gmail.com"
+                   class="btn-win98"
+                   aria-label="Send email to Ayaan Bhatti">
+                  [ Email ]
+                </a>
+                <a href="https://github.com/AyaanBhatti-dotcom"
+                   class="btn-win98"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label="View GitHub profile">
+                  [ GitHub ]
+                </a>
+                <a href="https://www.linkedin.com/in/ayaan-bhatti-0970a7346/"
+                   class="btn-win98"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label="View LinkedIn profile">
+                  [ LinkedIn ]
+                </a>
+                <a href="tel:9292349944"
+                   class="btn-win98"
+                   aria-label="Call Ayaan Bhatti">
+                  [ Phone ]
+                </a>
+              </div>
+            </div>
+
+            <!-- Status bar -->
+            <div class="win98-dialog__statusbar" aria-hidden="true">
+              <span>Ready</span>
+            </div>
+
+          </div>
+
+          <!-- Greets block -->
+          <div class="contact-greets">
+            <p class="text-dim text-sm" style="margin-bottom: var(--space-sm)">[ GREETS ]</p>
+            <p class="text-base" style="line-height: 2; font-family: var(--font-mono)">
+              <span class="text-cyan">Cyberstorm Team</span><span class="text-dim"> .. still competing ..</span><br>
+              <span class="text-cyan">St. John's University</span><span class="text-dim"> .. #1 in Queens ..</span><br>
+              <span class="text-cyan">NECCDC 2026</span><span class="text-dim"> .. see you at regionals ..</span><br>
+              <span class="text-cyan">BSides / PatriotCTF</span><span class="text-dim"> .. always learning ..</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ─────────────────────────────────────────────────── -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <!-- Single CSS-bordered panel — same fix as header/hero, no <pre> bar misalignment -->
+      <div class="site-footer__inner nfo-panel">
+        <p class="text-dim text-sm">
+          <span class="text-cyan">AYAAN.BHATTI-DOTCOM</span>
+          <span class="text-dim"> // </span>
+          <span>CYBERSEC PORTFOLIO</span>
+          <span class="text-dim"> // </span>
+          <span id="footer-year" class="text-green">2025</span>
+        </p>
+        <p class="text-dim text-xs" style="margin-top: var(--space-xs)">
+          BUILT WITH: HTML5 + CSS3 + VANILLA JS &nbsp;|&nbsp; HOSTED ON GITHUB PAGES
+        </p>
+        <p class="text-dim text-xs" style="margin-top: var(--space-xs); opacity: 0.5">
+          Stay Sharp
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- No-JS fallback -->
+  <noscript>
+    <style>
+      .typed-cursor { display: none; }
+      #typed-tagline::before { content: 'cat README.NFO'; }
+    </style>
+  </noscript>
+
+  <!-- Fixed hamburger — position: fixed keeps it accessible at any scroll depth -->
+  <button class="nav-hamburger"
+          aria-label="Open navigation menu"
+          aria-expanded="false"
+          aria-controls="menu-overlay">
+    <span class="nav-hamburger__bar" aria-hidden="true"></span>
+    <span class="nav-hamburger__bar" aria-hidden="true"></span>
+    <span class="nav-hamburger__bar" aria-hidden="true"></span>
+  </button>
+
+  <!-- Scripts -->
+  <script src="js/effects.js" defer></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>
