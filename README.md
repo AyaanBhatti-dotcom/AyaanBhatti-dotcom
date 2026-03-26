@@ -1,23 +1,26 @@
-# Hi there, I'm Ayaan Bhatti 👋
+# Ayaan Bhatti
 
-### 🛡️ Aspiring Cybersecurity Pentester & Malware Analyst
-
-I am a cybersecurity student focused on offensive security and tool development. I enjoy taking standard CLI tools and giving them unique, stylized graphical interfaces.
+Cybersecurity student at St. John's University (B.S. Cybersecurity, 2028). I compete on **Cyberstorm**, our university security team — mostly NECCDC and CTFs. Recently defended a Linux fleet at NECCDC regionals as the Ansible/automation operator on a two-person blue team.
 
 ---
 
-### 👨‍💻 What I'm Working On
-* **Portable Lab:** Configuring a **Raspberry Pi** as a portable unit for static malware analysis.
-* **Tool Development:** Building custom GUI wrappers for Kali Linux tools (like Nmap/Gobuster) with distinct themes based on video games like *Fallout* and *Final Fantasy*.
-* **Skill Building:** Deep diving into pentesting methodologies and static analysis.
+### What I'm working on
 
-### 🧠 Skills & Interests
-* **Core:** Python, Linux, Bash Scripting
-* **Security:** Malware Analysis, Network Pentesting, CTFs
-* **Creative:** Custom GUI Creation (Tkinter/CustomTkinter), Retro Game Aesthetics
+- **Cowrie SSH Honeypot** — split-architecture deployment: honeypot on a VPS, log analysis and dashboards on a Raspberry Pi. Part learning project, part portfolio piece.
+- **Portfolio site** — [AyaanBhatti-dotcom.github.io](https://AyaanBhatti-dotcom.github.io)
+- **Homelab** — repurposing old hardware into a Proxmox node, Kali CTF machine, and retro emulation box.
 
-### ⚡ Fun Fact
-I have a passion for blending UI design with cybersecurity. I've created multiple custom GUIs for security tools that mimic the interfaces found in my favorite RPGs and draw inspiration from my favorite artists.
+### Skills
+
+- **Languages:** Python, Bash
+- **Platforms:** Linux, Ansible, DigitalOcean
+- **Security:** CTFs, blue team ops, honeypots, disk forensics (FTK Imager / Autopsy), network security
+- **Other:** Git, static malware analysis basics
+
+### A bit more
+
+I play guitar (Jazzmaster), listen to a lot of shoegaze and indie rock, and enjoy tinkering with old hardware. My security interests skew toward automation and linux lately.
 
 ---
-[🔗 Connect with me on LinkedIn](https://www.linkedin.com/in/ayaan-bhatti-0970a7346/)
+
+[LinkedIn](https://www.linkedin.com/in/ayaan-bhatti-0970a7346/) · [GitHub](https://github.com/AyaanBhatti-dotcom)
