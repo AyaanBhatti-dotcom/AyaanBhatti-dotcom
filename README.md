@@ -1,6 +1,6 @@
 # Ayaan Bhatti
 
-Cybersecurity student at St. John's University (B.S. Cybersecurity, 2028). I compete on **Cyberstorm**, our university security team — mostly NECCDC and CTFs. Recently defended a Linux fleet at NECCDC regionals as the Ansible/automation operator on a two-person blue team.
+Cybersecurity student at St. John's University (B.S. Cybersecurity, 2028). I compete on **Cyberstorm**, our university security team. Recently defended a Linux fleet at NECCDC regionals as the Ansible/automation operator on a two-person blue team.
 
 ---
 
