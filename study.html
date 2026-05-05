@@ -1,0 +1,164 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+<title>Study - Ayaan's Homepage</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body bgcolor="#000000" text="#00FF66" link="#66FF99" vlink="#33CC66" alink="#CCFFCC">
+
+<center>
+<font face="Arial" color="#00FF66" size="6"><b>~~ STUDY ~~</b></font>
+<br>
+<font face="Times New Roman" color="#00FF66" size="2">winamp + youtube playlist &mdash; focus radio</font>
+</center>
+
+<center>
+<font face="Arial" color="#00FF66" size="2">
+[ <a href="index.html">Home</a> ] &nbsp;&nbsp;|&nbsp;&nbsp;
+[ <a href="about.html">About Me</a> ] &nbsp;&nbsp;|&nbsp;&nbsp;
+[ <a href="projects.html">My Projects</a> ] &nbsp;&nbsp;|&nbsp;&nbsp;
+[ <a href="skills.html">Skillz</a> ] &nbsp;&nbsp;|&nbsp;&nbsp;
+[ <a href="links.html">Links</a> ] &nbsp;&nbsp;|&nbsp;&nbsp;
+[ <a href="blog.html">Blog</a> ] &nbsp;&nbsp;|&nbsp;&nbsp;
+[ <a href="study.html">Study</a> ] &nbsp;&nbsp;|&nbsp;&nbsp;
+[ <a href="vot3-4-m3.html">Vot3 4 M3</a> ]
+</font>
+</center>
+
+<hr color="#00FF66" size="3">
+
+<table border="0" width="780" cellpadding="12" align="center">
+<tr><td bgcolor="#000000">
+
+<font face="Times New Roman" color="#00FF66" size="3">
+<b>Study radio:</b> Webamp runs the <b>Digi_Generation_2001</b> skin (<a href="https://skins.webamp.org/skin/93a811676070b878335d034e10dd3fe0/Digi_Generation_2001.wsz/" target="_blank" rel="noopener">Winamp Skin Museum</a>).
+Press <b>play</b> in Winamp to start the embedded YouTube playlist; play / pause / stop in Winamp are wired to the player below.
+Use the video controls or YouTube&rsquo;s queue if you want to skip tracks (Winamp&rsquo;s playlist is a silent stub so the buttons stay usable).
+</font>
+<br><br>
+<font face="Courier New" color="#00FF66" size="2">
+Note: Only YouTube can control ads on their player. This page uses the privacy-enhanced embed and modest branding, but it cannot remove ads for everyone (e.g. YouTube Premium removes ads for subscribers).
+</font>
+
+<br><br>
+
+<center>
+<div id="winamp-root" style="min-height:300px;overflow:auto;"></div>
+<br>
+<font face="Arial" color="#00FF66" size="2"><b>playlist stream (youtube)</b></font><br>
+<div id="yt-player" style="max-width:640px;margin:8px auto;"></div>
+</center>
+
+<br>
+<hr color="#00FF66" size="1">
+
+<center>
+<font face="Times New Roman" color="#00FF66" size="1">
+&copy; 1999 Ayaan Bhatti | <a href="index.html">back 2 home</a> | <a href="mailto:a.bhatti3005@gmail.com">a.bhatti3005@gmail.com</a>
+</font>
+</center>
+
+</td></tr>
+</table>
+
+<script>
+function onYouTubeIframeAPIReady () {
+  window.studyYTPlayer = new YT.Player('yt-player', {
+    height: '240',
+    width: '640',
+    playerVars: {
+      listType: 'playlist',
+      list: 'PLsLw38CB9ptZuXHHjTCeyrUQTsP7bPgp5',
+      modestbranding: 1,
+      rel: 0,
+      playsinline: 1,
+      origin: window.location.origin
+    },
+    events: {
+      onReady: function () { if (window.tryStudyAttachSync) window.tryStudyAttachSync(); }
+    }
+  });
+}
+</script>
+<script async src="https://www.youtube.com/iframe_api"></script>
+
+<script src="https://unpkg.com/webamp@2.2.0/built/webamp.bundle.min.js"></script>
+<script>
+(function () {
+  var SKIN_LOCAL = 'Digi_Generation_2001.wsz';
+  var SKIN_CDN = 'https://r2.webampskins.org/skins/93a811676070b878335d034e10dd3fe0.wsz';
+
+  function hookPlayer(webamp, yt) {
+    if (webamp.__studyHooked) return;
+    webamp.__studyHooked = true;
+    var prevStatus = null;
+    var prevVol = null;
+    webamp.store.subscribe(function () {
+      var status = webamp.getMediaStatus();
+      if (status !== prevStatus) {
+        prevStatus = status;
+        if (status === 'PLAYING') yt.playVideo();
+        else if (status === 'PAUSED') yt.pauseVideo();
+        else if (status === 'STOPPED') yt.pauseVideo();
+      }
+      var st = webamp.store.getState();
+      var vol = st && st.media && typeof st.media.volume === 'number' ? st.media.volume : null;
+      if (vol !== null && vol !== prevVol) {
+        prevVol = vol;
+        if (typeof yt.setVolume === 'function') yt.setVolume(vol);
+      }
+    });
+  }
+
+  window.tryStudyAttachSync = function () {
+    if (!window.studyWebamp || !window.studyYTPlayer) return;
+    hookPlayer(window.studyWebamp, window.studyYTPlayer);
+  };
+
+  function loadSkin(webamp) {
+    webamp.setSkinFromUrl(SKIN_LOCAL);
+    return webamp.skinIsLoaded().catch(function () {
+      webamp.setSkinFromUrl(SKIN_CDN);
+      return webamp.skinIsLoaded();
+    });
+  }
+
+  async function init() {
+    var root = document.getElementById('winamp-root');
+    if (!root || typeof Webamp === 'undefined') return;
+    if (!Webamp.browserIsSupported()) {
+      root.innerHTML = '<font face="Times New Roman" color="#00FF66">Sorry, your browser does not support Webamp (needs modern JS + Web Audio).</font>';
+      return;
+    }
+
+    var webamp = new Webamp({
+      initialTracks: [{
+        url: 'assets/silence.mp3',
+        defaultName: 'Study playlist (YouTube)',
+        metaData: { artist: 'YouTube', title: 'Embedded playlist' }
+      }]
+    });
+
+    await webamp.renderWhenReady(root);
+    webamp.setVolume(0);
+    window.studyWebamp = webamp;
+
+    try {
+      await loadSkin(webamp);
+    } catch (e) {
+      console.warn('Skin load failed', e);
+    }
+
+    window.tryStudyAttachSync();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+
+</body>
+</html>
