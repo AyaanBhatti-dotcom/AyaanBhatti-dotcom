@@ -2,7 +2,7 @@
 no build step, no repo needed, just image URLs. Swap colors/text via the query params. -->
 
 <p align="center">
-  <img src="https://i.pinimg.com/736x/b0/80/07/b08007c70003e0aee8cd7050aedab299.jpg" width="500" />
+  <img src="https://i.pinimg.com/1200x/3a/1a/aa/3a1aaa5927ad5e23c1cd8c87a5ae4dbd.jpg" width="250" />
 </p>
 
 <p align="center">
